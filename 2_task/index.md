@@ -32,49 +32,49 @@
 #### Дополнительные индексы и логические ограничения
 В целях ограничений, предполагается создать составной уникальный индекс для таблицы *provider_product_price* по полям *product_id* и *provider_id*. Думаю, кардинальность выше будет у поля product_id, поэтому поставил его на первое место.
 
-*Логичеакие ограничения по таблицам*
-Думаю, по каждому полю очевидно для какой цели то или иное ограничение.
+**Логичеакие ограничения по таблицам**
+Скорее всего, по каждому полю очевидно для какой цели то, или иное ограничение.
 Например, или поставщик не могут быть без имени. В то же время, продукт может быть без описания.
 Также цена должна быть положительной и тд.
-*poduct*
+**poduct**
 - name NOT NULL
 - category_id NOT NULL
 - manufaturer_id NOT NULL
 - is_visible NOT NULL
 
-*category*
+**category**
 - name NOT NULL
 
-*manufacturer*
+**manufacturer**
 - name NOT NULL
 
-*provider_product_price*
+**provider_product_price**
 - product_id NOT NULL
 - provider_id NOT NULL
 - price NOT NULL, больше 0
 
-*provider*
+**provider**
 - name NOT NULL
 
-*order_item*
+**order_item**
 - quentity NOT NULL, больше или равно 1
 - price NOT NULL, больше 0
 
-*order*
+**order**
 - create_at NOT NULL
 - upate_at NOT NULL
 - status_id NOT NULL
 - buyer_id NOT NULL
 
-*buyer_id*
+**buyer_id**
 - name NOT NULL
 
 #### Внешние ключи
 Все внешние связи показаны на схеме. Также они указаны в SQL ниже. Сами связи, думаю, также логичны и очевидны.
-Все внешние ограничения ON DELETE RESTRICT. Каскадные здесь будут неуместны.
+Все внешние ограничения ON DELETE RESTRICT. Каскадные операции здесь будут неуместны.
 
 ### SQL
-Ниже приведен sql для создания каждой из таблиц и ограничений.
+Ниже приведен sql для создания каждой из таблиц.
 
 ```
 CREATE TABLE product (
