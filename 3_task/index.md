@@ -9,12 +9,14 @@
 
 ### Установка Postgres 14
 
-```docker run -d \
+```
+docker run -d \
         --name otus-db-postgres \
         -p 5432:5432 \
         -e POSTGRES_PASSWORD=db_pass \
         -e POSTGRES_USER=otus_db_user \
         -e POSTGRES_DB=otus_db \
+        -v data/shop_data:/var/lib/postgresql/data \
          postgres:14-alpine
 ```
 
