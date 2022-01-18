@@ -1,6 +1,7 @@
 create database if not exists otus_db;
 
 create user if not exists otus_db_user with password 'db_pass';
+create role otus_db_role;
 grant otus_db_role to otus_db_user;
 
 create schema if not exists products;
@@ -72,8 +73,6 @@ create table if not exists orders.order_item (
     price NUMERIC(10,2) NOT NULL CHECK (price > 0),
     CONSTRAINT order_item_pk PRIMARY KEY (order_id,provider_product_id)
 );
-
-create role otus_db_role;
 
 alter schema products owner to otus_db_role;
 alter schema orders owner to otus_db_role;
